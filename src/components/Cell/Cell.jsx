@@ -9,7 +9,7 @@ const Cell = ({board,myTurn,cellId,handleSetBoard}) => {
     <div
       id={cellId}
       onClick={(e) => {
-        makeMove(cellSelected, cellId, myTurn)
+        !board[cellId] && makeMove(cellSelected, cellId, myTurn)
         }
       }
       className="cell">
