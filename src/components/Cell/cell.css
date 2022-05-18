@@ -15,6 +15,7 @@ const squareStyle= {
 } */
 
 .cell {
+    display:flex;
     background-color: #ddd;
     margin:4px;
     justify-content:center;
@@ -22,4 +23,6 @@ const squareStyle= {
     color: #000;
     border: 1px solid #000;
     width: 30%;
+    justify-content: center;
+    align-items: center;
 }

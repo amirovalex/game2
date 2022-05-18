@@ -1,21 +1,21 @@
 import {useState} from 'react';
 import "./cell.css";
-
-const Cell = ({socket,cellId}) => {
+import { makeMove,symbol } from '../../utils/gameLogic';
+const Cell = ({myTurn,cellId}) => {
 
   const [cellSelected,setCellSelected] = useState(null)
-  const chooseCell = () => {
-    socket.emit('message',cellId)
-  }
+  // const chooseCell = () => {
+  //   socket.emit('message',cellId)
+  // }
 
   return (
     <div
-      onClick={() => {
-        console.log('clicked')
-        chooseCell()}}
+      onClick={(e) => {
+        makeMove(cellSelected, cellId, myTurn)
+        setCellSelected(symbol)}
+      }
       className="cell">
-       {cellSelected === 1 && "X"}
-       {cellSelected === 2 && "O"}
+       {cellSelected}
     </div>
   );
 }
