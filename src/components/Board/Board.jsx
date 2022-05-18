@@ -2,26 +2,24 @@ import Cell from '../Cell/Cell.jsx';
 import './board.css';
 
 const Board = ({board,handleSetBoard,myTurn}) => {
+  const rowsId = [["r0c0","r0c1","r0c2"],["r1c0","r1c1","r1c2"],["r2c0","r2c1","r2c2"]]
+  
+  const renderRows = () => {
+    return rowsId.map((row,index) => {
+      return <div key={index} className="board-row">
+        {row.map((id,indexId) => {
+          return <Cell key={indexId} board={board} cellId={id} handleSetBoard={handleSetBoard} myTurn={myTurn}/>
+        })}
+      </div>
+    })
+  }
+
   return (
     <div className="board-container">
       <button>Reset</button>
       <div className="board">
         <h1>{myTurn ? "Your turn" : "Your opponent's turn"}</h1>
-        <div className="board-row">
-          <Cell board={board} cellId={"r0c0"} handleSetBoard={handleSetBoard} myTurn={myTurn}/>
-          <Cell board={board} cellId={"r0c1"} handleSetBoard={handleSetBoard}myTurn={myTurn}/>
-          <Cell board={board} cellId={"r0c2"} handleSetBoard={handleSetBoard}myTurn={myTurn}/>
-        </div>
-        <div className="board-row">
-          <Cell cellId={"r1c0"} handleSetBoard={handleSetBoard}myTurn={myTurn}/>
-          <Cell cellId={"r1c1"} handleSetBoard={handleSetBoard}myTurn={myTurn}/>
-          <Cell cellId={"r1c2"} handleSetBoard={handleSetBoard}myTurn={myTurn}/>
-        </div>
-        <div className="board-row">
-          <Cell cellId={"r2c0"} handleSetBoard={handleSetBoard}myTurn={myTurn}/>
-          <Cell cellId={"r2c1"} handleSetBoard={handleSetBoard}myTurn={myTurn}/>
-          <Cell cellId={"r2c2"} handleSetBoard={handleSetBoard}myTurn={myTurn}/>
-        </div>
+        {renderRows()}
       </div>
     </div>
   );
