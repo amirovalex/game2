@@ -1,0 +1,25 @@
+/* const rowStyle= {
+    display: 'flex'
+}
+
+const squareStyle= {
+    'width': '60px',
+        'height':'60px',
+        'backgroundColor': '#ddd',
+        'margin': '4px',
+        'display': 'flex',
+        'justifyContent': 'center',
+        'alignItems': 'center',
+        'fontSize': '20px',
+        'color': 'white'
+} */
+
+.cell {
+    background-color: #ddd;
+    margin:4px;
+    justify-content:center;
+    align-items:center;
+    color: #000;
+    border: 1px solid #000;
+    width: 30%;
+}
