@@ -3,7 +3,7 @@ import "./App.css";
 import Board from "./components/Board/Board.jsx";
 import io from "socket.io-client";
 import { gameBegin, moveMade, symbol } from "./utils/gameLogic";
-export const socket = io("ws://localhost:7070");
+export const socket = io(process.env.REACT_APP_BACKEND_URL);
 
 function App() {
   const [board, setBoard] = useState({});
