@@ -10,25 +10,34 @@ function App() {
   const [myTurn, setMyTurn] = useState(true);
   const [winMessage, setWinMessage] = useState("");
 
+  const handleSetBoard = (position, symbol) => {
+    setBoard({ ...board, [position]: symbol });
+  };
+  const handleSetTurn = (bool) => {
+    setMyTurn(bool);
+  };
   useEffect(() => {
     gameBegin(setMyTurn);
-    moveMade(myTurn, setMyTurn, setWinMessage, board);
-    // socket.on("message", (text) => {
-    //   setBoard(text);
-    // });
-    // socket.on("make.move", (newBoard) => {
-    //   setBoard(newBoard);
-    // });
   }, []);
 
   useEffect(() => {
-    console.log("my turn changed", myTurn);
-    console.log("my turn symbol", symbol);
-  }, [myTurn]);
+    moveMade(myTurn, handleSetTurn, setWinMessage, board, handleSetBoard);
+  }, [board]);
 
   return (
     <div className="App">
-      <Board myTurn={myTurn} />
+      <Board board={board} handleSetBoard={handleSetBoard} myTurn={myTurn} />
+      <h1
+        style={{
+          display:
+            winMessage === "You won!" || winMessage === "You lost."
+              ? "flex"
+              : "none",
+        }}
+        id="winMessage"
+      >
+        {winMessage}
+      </h1>
     </div>
   );
 }
