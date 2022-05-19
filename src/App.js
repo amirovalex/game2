@@ -7,7 +7,7 @@ export const socket = io(process.env.REACT_APP_BACKEND_URL);
 
 function App() {
   const [board, setBoard] = useState({});
-  const [myTurn, setMyTurn] = useState(true);
+  const [myTurn, setMyTurn] = useState(null);
   const [winMessage, setWinMessage] = useState("");
 
   const handleSetBoard = (position, symbol) => {

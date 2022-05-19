@@ -18,7 +18,7 @@ const Board = ({board,handleSetBoard,myTurn}) => {
     <div className="board-container">
       <button>Reset</button>
       <div className="board">
-        <h1>{myTurn ? "Your turn" : "Your opponent's turn"}</h1>
+        <h1>{myTurn === null ? "Wait for another player to join" : myTurn ? "Your turn" : "Your opponent's turn"}</h1>
         {renderRows()}
       </div>
     </div>
