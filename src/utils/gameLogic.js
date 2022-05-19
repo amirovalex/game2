@@ -1,4 +1,6 @@
 import { socket } from "../App";
+import xSymbol from "../assets/xSymbol.svg";
+import oSymbol from "../assets/oSymbol.svg";
 
 export let symbol;
 
@@ -45,8 +47,14 @@ export const moveMade = (
     handleSetBoard(data.position, data.symbol);
 
     let theDiv = document.getElementById(data.position);
-
-    theDiv.textContent = data.symbol;
+    let symbolSvg = document.createElement("img");
+    symbolSvg.src =
+      data.symbol === "X" ? xSymbol : data.symbol === "O" && oSymbol;
+    symbolSvg.style.width = "50px";
+    symbolSvg.style.height = "50px";
+    console.log(theDiv);
+    // theDiv.textContent = data.symbol;
+    theDiv.replaceChildren(symbolSvg);
 
     if (data.symbol !== symbol) {
       setMyTurn(true);

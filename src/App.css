@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .App-logo {
@@ -37,16 +40,17 @@
   }
 }
 
-#winMessage {
-  position: absolute;
-  top: 0;
-  margin:0;
-  /* left: 0; */
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+
+.win-message-container {
+    position: absolute;
+      top: 0;
+      margin: 0;
+      /* left: 0; */
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
 }

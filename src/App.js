@@ -10,6 +10,12 @@ function App() {
   const [myTurn, setMyTurn] = useState(null);
   const [winMessage, setWinMessage] = useState("");
 
+  // const resetGame = () => {
+  //   setBoard({});
+  //   setMyTurn(null);
+  //   setWinMessage("");
+  // };
+
   const handleSetBoard = (position, symbol) => {
     setBoard({ ...board, [position]: symbol });
   };
@@ -27,17 +33,18 @@ function App() {
   return (
     <div className="App">
       <Board board={board} handleSetBoard={handleSetBoard} myTurn={myTurn} />
-      <h1
+      <div
+        className="win-message-container"
         style={{
           display:
             winMessage === "You won!" || winMessage === "You lost."
               ? "flex"
               : "none",
         }}
-        id="winMessage"
       >
-        {winMessage}
-      </h1>
+        {/* <button onClick={() => resetGame()}>Reset</button> */}
+        <h1 id="winMessage">{winMessage}</h1>
+      </div>
     </div>
   );
 }
